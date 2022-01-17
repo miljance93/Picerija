@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picerija.DostavaDetailPage"
+             Title="Podaci o dostavi">
+    <StackLayout>
+        <Entry Placeholder="Unesite adresu dostave" Text="{Binding Address}" x:Name="dostavaDetail"/>
+        <Entry Placeholder="Unesite cenu dostave" Text="{Binding Sum}" Keyboard="Numeric" x:Name="cenaDetail"/>
+        <Entry Placeholder="Unesite iznos baksisa" Text="{Binding Tip}" Keyboard="Numeric" x:Name="baksisDetail"/>
+        <Button Text="Sacuvaj" x:Name="save" Clicked="Save_Clicked"/>
+    </StackLayout>
+</ContentPage>

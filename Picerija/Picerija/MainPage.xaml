@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Picerija.MainPage"
+             Title="Lista dostava" 
+             BackgroundImageSource="svstefan.jpg">
+    <ScrollView>
+        <RelativeLayout>
+            <StackLayout x:Name="stackLayout" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Start" Padding="10">
+                <Button Text="Dodaj dostavu" x:Name="add" Clicked="Add_Clicked"/>
+                <Button Text="Izbroj dostave" x:Name="countDostava" Clicked="CountDostava_Clicked"/>
+                <Button Text="Ukupno" Clicked="Sum_Clicked"/>
+            </StackLayout>
+            <Button Text="Baksis" Clicked="Baksis_Clicked" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                                            ElementName=stackLayout,
+                                                            Property=Y,
+                                                            Factor=1,Constant=55}"
+                    
+                                                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                                            ElementName=stackLayout,
+                                                            Property=X,
+                                                            Factor=1,Constant=10}"/>
+
+            <ListView x:Name="listView" ItemSelected="ListView_ItemSelected" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, 
+            ElementName=stackLayout,
+            Property=X,
+            Factor=1}"
+            
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=stackLayout,
+            Property=Y,
+            Factor=1,Constant=100}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding DostavaDetail}" TextColor="White" Detail="{Binding TipDetail}" DetailColor="White">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Obrisi" CommandParameter="{Binding .}" Clicked="Delete_Clicked"/>
+                                <MenuItem Text="Obrisi sve" CommandParameter="{Binding .}" Clicked="Delete_all_Clicked"/>
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativeLayout>
+    </ScrollView>  
+    
+    
+</ContentPage>
